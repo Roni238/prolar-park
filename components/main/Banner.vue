@@ -115,7 +115,8 @@
 
       &--pc {
         display: none;
-        @include tablet {
+
+        @include tablet-ori(landscape) {
           display: block;
         }
       }
@@ -126,6 +127,9 @@
         z-index: 100;
         position: absolute;
         @include tablet {
+          transform: translate(50%, -50%) scale(1);
+        }
+        @include tablet-ori(portrait) {
           display: none;
           right: -5%;
           top: 25%;

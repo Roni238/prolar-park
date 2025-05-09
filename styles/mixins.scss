@@ -17,6 +17,11 @@
     @content;
   }
 }
+@mixin tablet-ori($ori) {
+  @media (min-width: $tablet-breakpoint) and (max-width: $laptop-breakpoint) and (orientation: landscape) {
+    @content;
+  }
+}
 
 @mixin container(
   $mobile: $mobile-breakpoint,
