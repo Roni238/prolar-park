@@ -18,13 +18,30 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Prolar: аренда авто',
+      title: 'Prolar: аренда авто в Москве',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Аренда такси в вашем городе' },
+        {
+          name: 'description',
+          content:
+            'Аренда авто для работы в такси в Москве. Первый день аренды — бесплатно!',
+        },
         { name: 'theme-color', content: '#ffc600' },
         { name: 'lang', content: 'ru' },
+
+        { property: 'og:site_name', content: 'Prolar: аренда авто в Москве' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:locale', content: 'ru_RU' },
+
+        // Динамические теги будут переопределены на конкретных страницах
+        { property: 'og:title', content: 'Prolar: аренда авто в Москве' },
+        {
+          property: 'og:description',
+          content: 'Первый день аренды — бесплатно!',
+        },
+        { property: 'og:image', content: 'https://site.com/default-image.jpg' },
+        { property: 'og:url', content: 'https://prolar.ru' },
       ],
       link: [
         // Пример добавления favicon

@@ -3,11 +3,11 @@
     <div class="footer__container">
       <UiLogo class="footer__logo" />
 
-      <div class="footer__main">
+      <div class="footer__content">
         <div class="footer__contacts">
           <a
             href="tel:+79309993344"
-            class="footer__link--phone"
+            class="footer__link footer__link--phone"
             aria-label="Позвонить по номеру +7 930 999-33-44"
           >
             Телефон для связи: <br />
@@ -84,7 +84,7 @@
     @include container;
   }
 
-  &__main {
+  &__content {
     display: flex;
     flex-direction: column;
     @include tablet {
@@ -100,7 +100,7 @@
   }
 
   &__contacts {
-    padding: 12px 0px;
+    padding-block: 12px;
     border-block: 1px solid $main-color;
     display: flex;
     gap: 0.5rem;
@@ -119,11 +119,14 @@
       font-weight: bold;
       margin-right: auto;
     }
+    &:hover {
+      color: $main-color;
+      fill: $main-color;
+    }
   }
   &__link-icon {
     height: 35px;
     width: 35px;
-    display: inline;
   }
   &__requisites {
     padding: 12px 0px;
