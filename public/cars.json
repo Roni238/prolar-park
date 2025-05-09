@@ -1,0 +1,47 @@
+[
+  {
+    "model": "Kia Rio \n 2018 г",
+    "trim": "Эконом",
+    "schedule": "6/1",
+    "image": "kia2018.png",
+    "price_per_day": 1500,
+    "price_per_week": 2900,
+    "availability": "В наличии"
+  },
+  {
+    "model": "Kia Rio 2021 г (рестайлинг)",
+    "trim": "Комфорт +",
+    "schedule": "6/1",
+    "image": "kia2021.png",
+    "price_per_day": 1700,
+    "price_per_week": 2800,
+    "availability": "В наличии"
+  },
+  {
+    "model": "Skoda Rapid \n 2021 г",
+    "trim": "Комфорт +",
+    "schedule": "6/1",
+    "image": "skoda2021.png",
+    "price_per_day": 1700,
+    "price_per_week": 2900,
+    "availability": "В наличии"
+  },
+  {
+    "model": "Kia Optima \n 2020 г",
+    "trim": "Комфорт +",
+    "schedule": "6/1",
+    "image": "kia2020.png",
+    "price_per_day": 2700,
+    "price_per_week": 2900,
+    "availability": "В наличии"
+  },
+  {
+    "model": "Chery Tiggo 7 \n 2023 г",
+    "trim": "Комфорт +",
+    "schedule": "6/1",
+    "image": "chery2023.png",
+    "price_per_day": 3000,
+    "price_per_week": 4000,
+    "availability": "В наличии"
+  }
+]
