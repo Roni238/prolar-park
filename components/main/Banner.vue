@@ -32,26 +32,14 @@
           />
         </picture>
 
-        <!-- <nuxt-img class="banner__image--car"
-    src="/images/banner-car.png"
-    alt="Описание"
-    width="800"
-    height="600"
-    loading="lazy"
-    quality="80"
-    format="webp"
-  /> -->
         <picture>
-          <!-- <source
-                srcset="
-                  /images/banner-car.png 1x,
-                  /images/banner-car.png 2x,
-                  /images/banner-car.png 3x
-                "
-                type="image/webp"
-              /> -->
           <img class="banner__image--car" src="/images/banner-car.png" alt="" />
         </picture>
+        <img
+          class="banner__image banner__image--pc"
+          src="/images/banner-pc.png"
+          alt=""
+        />
       </div>
     </div>
   </section>
@@ -101,6 +89,7 @@
     border: none;
     padding: 15px 30px;
     border-radius: 18px;
+    text-align: center;
     @include tablet {
       width: max-content;
     }
@@ -124,6 +113,12 @@
         right: -40px;
       }
 
+      &--pc {
+        display: none;
+        @include tablet {
+          display: block;
+        }
+      }
       &--car {
         top: 55%;
         right: 50%;
@@ -131,6 +126,7 @@
         z-index: 100;
         position: absolute;
         @include tablet {
+          display: none;
           right: -5%;
           top: 25%;
           transform: translate(0%, 0%) scale(0.7);
