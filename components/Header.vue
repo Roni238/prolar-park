@@ -1,11 +1,7 @@
 <template>
   <header class="header">
     <div class="header__container">
-      <NuxtLink to="/" class="header__logo logo" aria-label="На главную">
-        <svg>
-          <use href="/icons.svg#logo-icon" />
-        </svg>
-      </NuxtLink>
+      <UiLogo class="header__logo" />
 
       <nav class="nav">
         <ul>
@@ -90,15 +86,6 @@ a {
   svg {
     height: 30px;
     width: 30px;
-  }
-}
-
-.logo svg {
-  width: 104px;
-  height: 24px;
-  @include laptop {
-    width: 146px;
-    height: 40px;
   }
 }
 

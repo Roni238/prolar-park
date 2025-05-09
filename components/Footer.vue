@@ -1,11 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer__container">
-      <NuxtLink to="/" class="footer__logo logo" aria-label="На главную">
-        <svg>
-          <use href="/icons.svg#logo-icon" />
-        </svg>
-      </NuxtLink>
+      <UiLogo class="footer__logo" />
 
       <div class="footer__main">
         <div class="footer__contacts">
@@ -77,15 +73,6 @@
 </template>
 
 <style lang="scss" scoped>
-.logo svg {
-  width: 104px;
-  height: 24px;
-  @include laptop {
-    width: 146px;
-    height: 40px;
-  }
-}
-
 .footer {
   padding-block: 30px;
   font-size: 0.875rem;

@@ -15,7 +15,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  // app: {
-  //   baseURL: '/nuxt-taxi/',
-  // },
 })

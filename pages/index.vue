@@ -1,9 +1,9 @@
 <template>
   <main class="main">
-    <MainBanner class="main__banner" />
+    <MainBanner id="banner" class="main__banner" />
     <MainAdvantages class="main__advantages" />
-    <MainAbout class="main__about" />
-    <MainCatalog class="main__catalog" />
+    <MainAbout id="about" class="main__about" />
+    <MainCatalog id="catalog" class="main__catalog" />
   </main>
 </template>
 
@@ -20,5 +20,13 @@
     padding-block: 30px;
     //margin-bottom: 60px;
   }
+  &__about {
+    margin-bottom: 30px;
+  }
+}
+#about,
+#catalog,
+#banner {
+  scroll-margin-top: 70px;
 }
 </style>
