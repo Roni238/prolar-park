@@ -68,11 +68,8 @@ const closeDropdown = () => {
   document.body.classList.remove('no-scroll')
 }
 </script>
-<style lang="scss" scoped>
-.no-scroll {
-  overflow: hidden;
-}
 
+<style lang="scss" scoped>
 a {
   font-size: 1.25rem;
 }
