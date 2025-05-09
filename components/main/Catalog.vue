@@ -153,6 +153,9 @@ onMounted(() => {
     background-color: #ffc600;
     padding: 2px 4px;
     border-radius: 4px;
+    margin-bottom: 2px;
+    display: block;
+    width: max-content;
   }
   &__schedule {
     text-align: end;
@@ -193,12 +196,8 @@ onMounted(() => {
     border-radius: 50%;
     background: #ffc600;
     fill: #fff;
-    font-size: 1.5rem;
     cursor: pointer;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
 
     svg {
       height: 100%;

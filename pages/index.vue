@@ -18,7 +18,6 @@
   &__about,
   &__catalog {
     padding-block: $section-padding;
-    //margin-bottom: 60px;
   }
   &__about {
     margin-bottom: $section-padding;

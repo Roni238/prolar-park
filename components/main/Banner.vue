@@ -32,6 +32,15 @@
           />
         </picture>
 
+        <!-- <nuxt-img class="banner__image--car"
+    src="/images/banner-car.png"
+    alt="Описание"
+    width="800"
+    height="600"
+    loading="lazy"
+    quality="80"
+    format="webp"
+  /> -->
         <picture>
           <!-- <source
                 srcset="
