@@ -15,7 +15,13 @@
       </div>
 
       <div class="banner__image-container">
-        <picture>
+        <img
+          src="/images/banner-bg.png"
+          class="banner__image"
+          alt="Баннер"
+          loading="lazy"
+        />
+        <!-- <picture>
           <source
             srcset="
               /images/banner-bg.webp    1x,
@@ -30,7 +36,7 @@
             alt="Баннер"
             loading="lazy"
           />
-        </picture>
+        </picture> -->
 
         <picture>
           <img class="banner__image--car" src="/images/banner-car.png" alt="" />
