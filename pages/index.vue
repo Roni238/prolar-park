@@ -12,16 +12,16 @@
 <style lang="scss" scoped>
 .main {
   &__banner {
-    margin-bottom: 30px;
+    margin-bottom: $section-padding;
   }
   &__advantages,
   &__about,
   &__catalog {
-    padding-block: 30px;
+    padding-block: $section-padding;
     //margin-bottom: 60px;
   }
   &__about {
-    margin-bottom: 30px;
+    margin-bottom: $section-padding;
   }
 }
 #about,

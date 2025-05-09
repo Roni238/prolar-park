@@ -74,7 +74,7 @@
 
 <style lang="scss" scoped>
 .footer {
-  padding-block: 30px;
+  padding-block: $section-padding;
   font-size: 0.875rem;
   line-height: 1.5;
 

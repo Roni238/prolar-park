@@ -9,7 +9,9 @@
           </h1>
           <p class="banner__discription">Ваш бизнес едет быстрее с нами</p>
         </div>
-        <button class="banner__cta-bnt">Стать водителем</button>
+        <NuxtLink to="#catalog" class="banner__cta-bnt" aria-label="На главную"
+          >Стать водителем</NuxtLink
+        >
       </div>
 
       <div class="banner__image-container">
@@ -66,7 +68,7 @@
     box-sizing: border-box;
     flex-direction: column;
     justify-content: space-between;
-    padding-block: 30px;
+    padding-block: $section-padding;
     @include tablet {
       padding-block: 50px;
     }

@@ -164,9 +164,9 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid #e7e7e7;
-  padding-top: 20px;
+  padding-top: $section-padding;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: $section-padding;
 }
 
 .pagination {
