@@ -1,29 +1,32 @@
 <template>
-  <section class="catalog">
+  <section class="catalog" aria-labelledby="catalog-title">
     <div class="catalog__container">
-      <h2 class="catalog__title">КАТАЛОГ АВТО</h2>
+      <h2 id="catalog-title" class="catalog__title">КАТАЛОГ АВТО</h2>
 
-      <div class="swiper-container">
-        <Swiper
-          :modules="[Navigation]"
-          :space-between="20"
-          :breakpoints="{
-            320: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 },
-          }"
-          @swiper="setSwiperInstance"
-          @slide-change="updatePagination"
+      <Swiper
+        :modules="[Navigation]"
+        :space-between="20"
+        :breakpoints="{
+          320: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 4 },
+        }"
+        @swiper="setSwiperInstance"
+        @slide-change="updatePagination"
+        aria-label="Галерея автомобилей"
+      >
+        <SwiperSlide
+          v-for="(car, index) in cars"
+          :key="`${car.model}-${index}`"
+          :aria-label="`Модель ${car.model}, комплектация ${car.trim}`"
+          role="group"
+          aria-roledescription="slide"
         >
-          <SwiperSlide
-            v-for="(car, index) in cars"
-            :key="`${car.model}-${index}`"
-          >
-            <!-- Ваш контент слайдов -->
+          <article class="swiper-slide__content">
             <header class="swiper-slide__header">
               <div>
-                <h4 class="swiper-slide__title">{{ car.model }}</h4>
-                <p class="swiper-slide__trim">{{ car.trim }}</p>
+                <h3>{{ car.model }}</h3>
+                <p>{{ car.trim }}</p>
               </div>
               <p class="swiper-slide__schedule">
                 график <br />
@@ -32,33 +35,56 @@
             </header>
             <img
               :src="`/cars/${car.image}`"
-              :alt="car.model"
+              :alt="`${car.model} ${car.trim}`"
               class="swiper-slide__image"
+              loading="lazy"
               @error="handleImageError"
             />
             <footer class="swiper-slide__footer">
-              <mark class="swiper-slide__price-day">
+              <mark
+                class="swiper-slide__price-day"
+                :aria-label="`Цена за сутки ${car.price_per_day}`"
+              >
                 {{ car.price_per_day }} ₽ в сутки
               </mark>
-              <p>от {{ car.price_per_week }} ₽ в неделю</p>
+              <p aria-label="Цена за неделю">
+                от {{ car.price_per_week }} ₽ в неделю
+              </p>
               <p class="swiper-slide__availability">{{ car.availability }}</p>
             </footer>
-          </SwiperSlide>
-        </Swiper>
-        <div class="pagination-wrapper">
-          <div class="pagination">{{ currentSlide }} из {{ totalSlides }}</div>
-          <div class="buttons">
-            <button @click="slidePrev" class="pagination__button--left">
-              <svg>
-                <use xlink:href="/icons.svg#arrow"></use>
-              </svg>
-            </button>
-            <button @click="slideNext" class="pagination__button">
-              <svg>
-                <use xlink:href="/icons.svg#arrow"></use>
-              </svg>
-            </button>
-          </div>
+          </article>
+        </SwiperSlide>
+      </Swiper>
+
+      <div class="pagination" aria-controls="car-gallery">
+        <div class="pagination__counter" aria-live="polite">
+          Слайд {{ swiperState.currentSlide }} из {{ maxSwipes }}
+        </div>
+
+        <div class="pagination__buttons">
+          <button
+            @click="slidePrev"
+            class="pagination__button pagination__button--left"
+            :class="{ 'pagination__button--disabled': isBeginning }"
+            :disabled="isBeginning"
+            aria-label="Предыдущий слайд"
+          >
+            <svg aria-hidden="true" focusable="false">
+              <use xlink:href="/icons.svg#arrow"></use>
+            </svg>
+          </button>
+
+          <button
+            @click="slideNext"
+            class="pagination__button"
+            :class="{ 'pagination__button--disabled': isEnd }"
+            :disabled="isEnd"
+            aria-label="Следующий слайд"
+          >
+            <svg aria-hidden="true" focusable="false">
+              <use xlink:href="/icons.svg#arrow"></use>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -66,52 +92,51 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper/modules'
 
-// Стили
 import 'swiper/css'
-import 'swiper/css/navigation'
 import cars from 'public/cars.json'
 
-const swiperInstance = ref(null)
-const currentSlide = ref(1)
-const totalSlides = ref(0)
+const swiperState = ref({
+  instance: null,
+  currentSlide: 1,
+  totalSlides: 0,
+  slidesPerView: 1,
+})
+
+const maxSwipes = computed(() =>
+  Math.max(
+    swiperState.value.totalSlides - swiperState.value.slidesPerView + 1,
+    1
+  )
+)
+
+const isBeginning = computed(() => swiperState.value.currentSlide === 1)
+const isEnd = computed(() => swiperState.value.currentSlide >= maxSwipes.value)
 
 const setSwiperInstance = (swiper) => {
-  swiperInstance.value = swiper
-  totalSlides.value = swiper.slides.length
+  swiperState.value = {
+    ...swiperState.value,
+    instance: swiper,
+    totalSlides: swiper.slides.length,
+    slidesPerView: swiper.params.slidesPerView,
+  }
+
+  swiper.on('resize', () => {
+    swiperState.value.slidesPerView = swiper.params.slidesPerView
+  })
 }
 
 const updatePagination = () => {
-  if (swiperInstance.value) {
-    currentSlide.value = swiperInstance.value.activeIndex + 1
+  if (swiperState.value.instance) {
+    swiperState.value.currentSlide = swiperState.value.instance.activeIndex + 1
   }
 }
 
-const slidePrev = () => {
-  if (swiperInstance.value) {
-    swiperInstance.value.slidePrev()
-  }
-}
-
-const slideNext = () => {
-  if (swiperInstance.value) {
-    swiperInstance.value.slideNext()
-  }
-}
-
-const handleImageError = (event) => {
-  console.error('Image failed to load:', event.target.src)
-  event.target.src = '/path/to/placeholder.jpg'
-}
-
-onMounted(() => {
-  if (swiperInstance.value) {
-    totalSlides.value = swiperInstance.value.slides.length
-  }
-})
+const slidePrev = () => swiperState.value.instance?.slidePrev()
+const slideNext = () => swiperState.value.instance?.slideNext()
 </script>
 
 <style lang="scss" scoped>
@@ -131,7 +156,6 @@ onMounted(() => {
   padding: 16px 16px 4px 16px;
   box-sizing: border-box;
   border-radius: 20px;
-  position: relative;
   white-space: pre-line;
 
   &__header {
@@ -144,10 +168,12 @@ onMounted(() => {
   &__image {
     width: 100%;
   }
+
   &__availability {
     text-align: center;
     margin-top: 5px;
   }
+
   &__price-day {
     font-size: 1.2rem;
     background-color: #ffc600;
@@ -157,12 +183,13 @@ onMounted(() => {
     display: block;
     width: max-content;
   }
+
   &__schedule {
     text-align: end;
   }
 }
 
-.pagination-wrapper {
+.pagination {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -170,26 +197,20 @@ onMounted(() => {
   padding-top: $section-padding;
   gap: 20px;
   margin-top: $section-padding;
-}
 
-.pagination {
-  font-size: 1.2rem;
-  color: #fff;
-  min-width: 60px;
-  text-align: center;
+  &__counter {
+    font-size: 1.2rem;
+    color: #fff;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+  }
 
   &__button {
-    &--left {
-      transform: rotate(180deg);
-    }
-  }
-}
-
-.buttons {
-  display: flex;
-  gap: 20px;
-
-  button {
     width: 40px;
     height: 40px;
     border: 1px solid #fff;
@@ -198,9 +219,14 @@ onMounted(() => {
     fill: #fff;
     cursor: pointer;
     display: flex;
+    transition: opacity 0.3s ease;
 
-    svg {
-      height: 100%;
+    &--left {
+      transform: rotate(180deg);
+    }
+
+    &--disabled {
+      opacity: 0.6;
     }
   }
 }
