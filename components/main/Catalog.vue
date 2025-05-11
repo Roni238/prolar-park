@@ -58,7 +58,7 @@
 
       <div class="pagination" aria-controls="car-gallery">
         <div class="pagination__counter" aria-live="polite">
-          Слайд {{ swiperState.currentSlide }} из {{ maxSwipes }}
+          {{ swiperState.currentSlide }} из {{ maxSwipes }}
         </div>
 
         <div class="pagination__buttons">
