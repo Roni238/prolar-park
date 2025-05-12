@@ -40,7 +40,10 @@ export default defineNuxtConfig({
           property: 'og:description',
           content: 'Первый день аренды — бесплатно!',
         },
-        { property: 'og:image', content: 'https://site.com/default-image.jpg' },
+        {
+          property: 'og:image',
+          content: 'https://taxi-swart.vercel.app/ad.jpg',
+        },
         { property: 'og:url', content: 'https://prolar.ru' },
       ],
       link: [
