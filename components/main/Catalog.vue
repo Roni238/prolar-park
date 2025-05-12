@@ -221,6 +221,11 @@ const slideNext = () => swiperState.value.instance?.slideNext()
     display: flex;
     transition: opacity 0.3s ease;
 
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+
     &--left {
       transform: rotate(180deg);
     }

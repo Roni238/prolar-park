@@ -44,7 +44,7 @@
         <img
           class="banner__image banner__image--pc"
           src="/images/banner-pc.png"
-          alt=""
+          alt="Машина на банере"
         />
       </div>
     </div>
