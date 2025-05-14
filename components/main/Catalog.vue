@@ -47,10 +47,7 @@
               >
                 {{ car.price_per_day }} ₽ в сутки
               </mark>
-              <p aria-label="Цена за неделю">
-                от {{ car.price_per_week }} ₽ в неделю
-              </p>
-              <p class="swiper-slide__availability">{{ car.availability }}</p>
+              <p class="swiper-slide__availability">* возможна араенда 6/1</p>
             </footer>
           </article>
         </SwiperSlide>

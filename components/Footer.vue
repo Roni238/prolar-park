@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <p class="footer__copyright">© 2025 ООО «ПОЛАР». Все права защищены.</p>
+    <p class="footer__copyright">© 2025 ООО «ПРОЛАР». Все права защищены.</p>
   </footer>
 </template>
 
