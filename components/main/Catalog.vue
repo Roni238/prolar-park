@@ -47,7 +47,7 @@
               >
                 {{ car.price_per_day }} ₽ в сутки
               </mark>
-              <p class="swiper-slide__availability">* возможна араенда 6/1</p>
+              <p class="swiper-slide__availability">* возможна аренда 6/1</p>
             </footer>
           </article>
         </SwiperSlide>
