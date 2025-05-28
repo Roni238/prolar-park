@@ -23,39 +23,8 @@
         </nav>
 
         <div class="contacts">
-          <a
-            class="contacts__link"
-            href="https://wa.me/79309993344"
-            aria-label="Написать в WhatsApp"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              class="contacts__link-icon"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <title>WhatsApp</title>
-              <use href="/icons.svg#whatsapp-icon" />
-            </svg>
-          </a>
-
-          <a
-            class="contacts__link"
-            href="https://t.me/Roni238000000"
-            aria-label="Написать в Telegram"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              class="contacts__link-icon"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <title>Telegram</title>
-              <use href="/icons.svg#telegram-icon" />
-            </svg>
-          </a>
+          <WhatsApp />
+          <Telegram />
 
           <a
             href="tel:+79309993344"
@@ -72,6 +41,9 @@
 </template>
 
 <script setup>
+import Telegram from '@/components/ui/links/Telegram.vue'
+import WhatsApp from '@/components/ui/links/WhatsApp.vue'
+
 const props = defineProps({
   isOpen: Boolean,
 })
@@ -111,11 +83,6 @@ const closeDropdown = () => emit('close')
   padding-top: 16px;
   border-top: 1px solid #eee;
 
-  &__link-icon {
-    height: 35px;
-    width: 35px;
-    flex-shrink: 0;
-  }
   &__link {
     &--phone {
       margin-left: auto;

@@ -21,26 +21,9 @@
           alt="Баннер"
           loading="lazy"
         />
-        <!-- <picture>
-          <source
-            srcset="
-              /images/banner-bg.webp    1x,
-              /images/banner-bg@2x.webp 2x,
-              /images/banner-bg@3x.webp 3x
-            "
-            type="image/webp"
-          />
-          <img
-            src="/images/banner-bg.png"
-            class="banner__image"
-            alt="Баннер"
-            loading="lazy"
-          />
-        </picture> -->
 
-        <picture>
-          <img class="banner__image--car" src="/images/banner-car.png" alt="" />
-        </picture>
+        <img class="banner__image--car" src="/images/banner-car.png" alt="" />
+
         <img
           class="banner__image banner__image--pc"
           src="/images/banner-pc.png"

@@ -14,31 +14,15 @@
         </ul>
       </nav>
       <div class="contacts">
-        <a
-          href="https://wa.me/79309993344"
-          class="contacts__link"
-          aria-label="WhatsApp"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg width="40" height="40" aria-label="WhatsApp">
-            <use href="/icons.svg#whatsapp-icon" />
-          </svg>
-        </a>
+        <WhatsApp />
+        <Telegram />
 
         <a
-          href="https://t.me/Roni238000000"
+          href="tel:+79309993344"
+          aria-label="Позвонить по номеру +7 930 999-33-44"
           class="contacts__link"
-          aria-label="Telegram"
-          target="_blank"
-          rel="noopener noreferrer"
+          >+7-930-999-33-44</a
         >
-          <svg width="40" height="40" aria-label="Telegram">
-            <use href="/icons.svg#telegram-icon" />
-          </svg>
-        </a>
-
-        <a href="tel:+79309993344" class="contacts__link">+7-930-999-33-44</a>
       </div>
 
       <button
@@ -57,6 +41,9 @@
   </header>
 </template>
 <script setup>
+import Telegram from '@/components/ui/links/Telegram.vue'
+import WhatsApp from '@/components/ui/links/WhatsApp.vue'
+
 const isDropdownOpen = ref(false)
 
 const toggleDropdown = () => {

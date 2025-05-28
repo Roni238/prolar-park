@@ -16,40 +16,10 @@
 
           <ul class="footer__social">
             <li>
-              <a
-                class="footer__link"
-                href="https://wa.me/79309993344"
-                aria-label="Написать в WhatsApp"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg
-                  class="footer__link-icon"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <title>WhatsApp</title>
-                  <use href="/icons.svg#whatsapp-icon" />
-                </svg>
-              </a>
+              <WhatsApp class="footer__link" />
             </li>
             <li>
-              <a
-                class="footer__link"
-                href="https://t.me/Roni238000000"
-                aria-label="Написать в Telegram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg
-                  class="footer__link-icon"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <title>Telegram</title>
-                  <use href="/icons.svg#telegram-icon" />
-                </svg>
-              </a>
+              <Telegram class="footer__link" />
             </li>
           </ul>
         </div>
@@ -71,6 +41,11 @@
     <p class="footer__copyright">© 2025 ООО «ПРОЛАР». Все права защищены.</p>
   </footer>
 </template>
+
+<script setup>
+import Telegram from '@/components/ui/links/Telegram.vue'
+import WhatsApp from '@/components/ui/links/WhatsApp.vue'
+</script>
 
 <style lang="scss" scoped>
 .footer {
@@ -118,6 +93,9 @@
     &--phone {
       font-weight: bold;
       margin-right: auto;
+      @include tablet {
+        text-align: end;
+      }
     }
     &:hover {
       color: $main-color;
