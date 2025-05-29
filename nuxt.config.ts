@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/styles/global.scss'],
@@ -19,6 +18,10 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Prolar: аренда авто в Москве',
+      htmlAttrs: {
+        lang: 'ru',
+        dir: 'ltr',
+      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -28,13 +31,10 @@ export default defineNuxtConfig({
             'Аренда авто для работы в такси в Москве. Первый день аренды — бесплатно!',
         },
         { name: 'theme-color', content: '#ffc600' },
-        { name: 'lang', content: 'ru' },
 
         { property: 'og:site_name', content: 'Prolar: аренда авто в Москве' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'ru_RU' },
-
-        // Динамические теги будут переопределены на конкретных страницах
         { property: 'og:title', content: 'Prolar: аренда авто в Москве' },
         {
           property: 'og:description',
@@ -46,10 +46,7 @@ export default defineNuxtConfig({
         },
         { property: 'og:url', content: 'https://prolar.ru' },
       ],
-      link: [
-        // Пример добавления favicon
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
 
