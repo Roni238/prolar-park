@@ -49,6 +49,9 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
+  experimental: {
+    payloadExtraction: false,
+  },
 
   compatibilityDate: '2025-05-09',
 })
