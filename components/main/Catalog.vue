@@ -13,7 +13,6 @@
         }"
         @swiper="setSwiperInstance"
         @slide-change="updatePagination"
-        aria-label="Каталог авто"
       >
         <SwiperSlide
           v-for="(car, index) in cars"
@@ -25,10 +24,10 @@
           <article class="swiper-slide__content">
             <header class="swiper-slide__header">
               <div>
-                <h3 aria-label="Модель">{{ car.model }}</h3>
-                <p aria-label="Класс">{{ car.trim }}</p>
+                <h3>{{ car.model }}</h3>
+                <p>{{ car.trim }}</p>
               </div>
-              <p class="swiper-slide__schedule" aria-label="график">
+              <p class="swiper-slide__schedule" aria-label="График аренды">
                 график <br />
                 {{ car.schedule }}
               </p>
@@ -44,9 +43,7 @@
               <mark class="swiper-slide__price-day" aria-label="Цена за сутки">
                 {{ car.price_per_day }} ₽ в сутки
               </mark>
-              <p class="swiper-slide__availability" aria-label="Примечание">
-                * возможна аренда 6/1
-              </p>
+              <p class="swiper-slide__availability">* возможна аренда 6/1</p>
             </footer>
           </article>
         </SwiperSlide>
