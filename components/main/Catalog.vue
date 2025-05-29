@@ -13,6 +13,7 @@
         }"
         @swiper="setSwiperInstance"
         @slide-change="updatePagination"
+        id="car-gallery"
       >
         <SwiperSlide
           v-for="(car, index) in cars"
@@ -27,7 +28,7 @@
                 <h3>{{ car.model }}</h3>
                 <p>{{ car.trim }}</p>
               </div>
-              <p class="swiper-slide__schedule" aria-label="График аренды">
+              <p class="swiper-slide__schedule">
                 график <br />
                 {{ car.schedule }}
               </p>
@@ -40,7 +41,7 @@
               @error="handleImageError"
             />
             <footer class="swiper-slide__footer">
-              <mark class="swiper-slide__price-day" aria-label="Цена за сутки">
+              <mark class="swiper-slide__price-day">
                 {{ car.price_per_day }} ₽ в сутки
               </mark>
               <p class="swiper-slide__availability">* возможна аренда 6/1</p>
@@ -49,16 +50,16 @@
         </SwiperSlide>
       </Swiper>
 
-      <div class="pagination" aria-controls="car-gallery">
-        <div class="pagination__counter" aria-live="polite">
+      <div class="navigation" aria-controls="car-gallery">
+        <div class="navigation__counter" aria-live="polite">
           {{ swiperState.currentSlide }} из {{ maxSwipes }}
         </div>
 
-        <div class="pagination__buttons">
+        <div class="navigation__buttons">
           <button
             @click="slidePrev"
-            class="pagination__button pagination__button--left"
-            :class="{ 'pagination__button--disabled': isBeginning }"
+            class="navigation__button navigation__button--left"
+            :class="{ 'navigation__button--disabled': isBeginning }"
             :disabled="isBeginning"
             aria-label="Предыдущий слайд"
           >
@@ -69,8 +70,8 @@
 
           <button
             @click="slideNext"
-            class="pagination__button"
-            :class="{ 'pagination__button--disabled': isEnd }"
+            class="navigation__button"
+            :class="{ 'navigation__button--disabled': isEnd }"
             :disabled="isEnd"
             aria-label="Следующий слайд"
           >
@@ -182,7 +183,7 @@ const slideNext = () => swiperState.value.instance?.slideNext()
   }
 }
 
-.pagination {
+.navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
