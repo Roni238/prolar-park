@@ -117,7 +117,7 @@ a {
 
   a:last-child {
     color: #fff;
-    background: $main-color;
+    background: #e6b800;
     padding: 8px;
     border-radius: 10px;
   }

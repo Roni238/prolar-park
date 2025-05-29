@@ -15,19 +15,18 @@
       </div>
 
       <div class="banner__image-container">
-        <img
-          src="/images/banner-bg.png"
-          class="banner__image"
-          alt="Баннер"
-          loading="lazy"
-        />
+        <img src="/images/banner-bg.png" class="banner__image" alt="Баннер" />
 
-        <img class="banner__image--car" src="/images/banner-car.png" alt="" />
+        <img
+          class="banner__image--car"
+          src="/images/banner-car.png"
+          alt="Машина на банере"
+        />
 
         <img
           class="banner__image banner__image--pc"
           src="/images/banner-pc.png"
-          alt="Машина на банере"
+          alt="Банер"
         />
       </div>
     </div>
