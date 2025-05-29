@@ -1,7 +1,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/styles/global.scss'],
-
+  hooks: {
+    'build:manifest': (manifest) => {
+      for (const key in manifest) {
+        if (manifest[key].prefetch) {
+          delete manifest[key].prefetch
+        }
+      }
+    },
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -48,9 +56,6 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
-  },
-  experimental: {
-    payloadExtraction: false,
   },
 
   compatibilityDate: '2025-05-09',
